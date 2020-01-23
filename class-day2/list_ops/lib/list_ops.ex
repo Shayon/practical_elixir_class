@@ -12,10 +12,14 @@ defmodule ListOps do
   end
 
   def count(list) do
-    reduce(list, 0, fn (_, acc) -> acc + 1 end)
+    reduce(list, 0, fn _, acc -> acc + 1 end)
   end
 
   def reverse(list) do
-    reduce(list, [], &([ &1 | &2 ]))
+    reduce(list, [], &[&1 | &2])
+  end
+
+  def map(list, mapper) do
+    reduce(list, [], fn item, acc -> acc <> mapper.(item) end)
   end
 end
