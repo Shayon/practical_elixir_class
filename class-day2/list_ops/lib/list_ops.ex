@@ -17,5 +17,5 @@ defmodule ListOps do
 
   def reverse(list) do
     reduce(list, [], &([ &1 | &2 ]))
-  end 
+  end
 end
