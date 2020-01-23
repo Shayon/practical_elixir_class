@@ -11,6 +11,11 @@ defmodule ListOps do
     reduce(tail, reducer.(head, acc), reducer)
   end
 
-  def count() do
+  def count(list) do
+    reduce(list, 0, fn (_, acc) -> acc + 1 end)
   end
+
+  def reverse(list) do
+    reduce(list, [], &([ &1 | &2 ]))
+  end 
 end

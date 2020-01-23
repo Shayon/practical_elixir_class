@@ -24,27 +24,22 @@ defmodule ListOpsTest do
     assert ListOps.count([]) == 0
   end
 
-  @tag :not_impl
   test "count of normal list" do
     assert ListOps.count([1, 3, 5, 7]) == 4
   end
 
-  @tag :not_impl
   test "count of huge list" do
     assert ListOps.count(Enum.to_list(1..1_000_000)) == 1_000_000
   end
 
-  @tag :not_impl
   test "reverse of empty list" do
     assert ListOps.reverse([]) == []
   end
 
-  @tag :not_impl
   test "reverse of normal list" do
     assert ListOps.reverse([1, 3, 5, 7]) == [7, 5, 3, 1]
   end
 
-  @tag :not_impl
   test "reverse of huge list" do
     assert ListOps.reverse(Enum.to_list(1..1_000_000)) == Enum.to_list(1_000_000..1)
   end
