@@ -24,12 +24,10 @@ defmodule ListOpsTest do
     assert ListOps.count([]) == 0
   end
 
-  @tag :not_impl
   test "count of normal list" do
     assert ListOps.count([1, 3, 5, 7]) == 4
   end
 
-  @tag :not_impl
   test "count of huge list" do
     assert ListOps.count(Enum.to_list(1..1_000_000)) == 1_000_000
   end
