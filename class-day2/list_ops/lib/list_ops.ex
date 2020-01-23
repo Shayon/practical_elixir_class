@@ -7,7 +7,10 @@ defmodule ListOps do
     acc
   end
 
-  def reduce(list, acc, reducer) do
-    list
+  def reduce([head | tail], acc, reducer) do
+    reduce(tail, reducer.(head, acc), reducer)
+  end
+
+  def count() do
   end
 end
