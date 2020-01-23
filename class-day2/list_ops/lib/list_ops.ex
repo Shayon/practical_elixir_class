@@ -20,6 +20,6 @@ defmodule ListOps do
   end
 
   def map(list, mapper) do
-    reduce(list, [], fn item, acc -> acc <> mapper.(item) end)
+    reverse(reduce(list, [], fn item, acc -> [mapper.(item) | acc] end))
   end
 end
