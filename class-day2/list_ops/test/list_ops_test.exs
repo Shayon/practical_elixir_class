@@ -7,7 +7,6 @@ defmodule ListOpsTest do
     assert ListOps.reduce([], 0, &(&1 + &2)) == 0
   end
 
-  @tag :not_impl
   test "reduce of normal list" do
     assert ListOps.reduce([1, 2, 3, 4], -3, &(&1 + &2)) == 7
   end
