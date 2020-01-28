@@ -9,13 +9,11 @@ defmodule CountingServerTest do
     assert pid in links
   end
 
-  @tag :not_impl
   test "start_link/0 creates new process with name" do
     {:ok, pid} = CountingServer.start_link()
     assert Process.whereis(MyCounter) == pid
   end
 
-  @tag :not_impl
   test "start_link/1 creates new linked process with name" do
     {:ok, pid} = CountingServer.start_link(false)
     assert self() != pid
