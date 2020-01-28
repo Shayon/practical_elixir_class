@@ -30,7 +30,6 @@ defmodule CountingServerTest do
     assert_receive 1
   end
 
-  @tag :not_impl
   test "current_number/1 returns current number" do
     {:ok, _pid} = CountingServer.start_link(false)
     assert CountingServer.current_number(MyCounter) == 1
