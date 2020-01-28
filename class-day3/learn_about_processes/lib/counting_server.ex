@@ -13,5 +13,11 @@ defmodule CountingServer do
   end
 
   def current_number(process_name) do
+    pid = Process.whereis(process_name)
+    send(pid, { :current_number, self() })
+    
+    receive do
+        response -> response
+    end
   end
 end
