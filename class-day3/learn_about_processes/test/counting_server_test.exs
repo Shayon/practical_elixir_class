@@ -23,7 +23,6 @@ defmodule CountingServerTest do
     assert Process.whereis(MyCounter) == pid
   end
 
-  @tag :not_impl
   test "ask for number returns a number" do
     {:ok, pid} = CountingServer.start_link(false)
     send(pid, {:current_number, self()})
