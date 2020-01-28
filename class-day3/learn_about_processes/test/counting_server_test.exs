@@ -35,7 +35,6 @@ defmodule CountingServerTest do
     assert CountingServer.current_number(MyCounter) == 1
   end
 
-  @tag :not_impl
   test "sending :double doubles the number" do
     {:ok, pid} = CountingServer.start_link(false)
     assert CountingServer.current_number(MyCounter) == 1
