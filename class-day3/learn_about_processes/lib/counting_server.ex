@@ -2,6 +2,9 @@ defmodule CountingServer do
   def start_link(flag \\ false) do
     pid = spawn_link(CountingServer, :listener, [])
     Process.register(pid, MyCounter)
+    if flag do
+      send(pid, :increment)
+    end
 
     {:ok, pid}
   end
@@ -12,7 +15,9 @@ defmodule CountingServer do
         {:current_number, pid} ->
           send(pid, current_number)
           current_number
-
+        :increment ->
+          Process.send_after(self(), :increment, 500)
+          current_number + 1
         :double ->
           current_number * 2
       end
