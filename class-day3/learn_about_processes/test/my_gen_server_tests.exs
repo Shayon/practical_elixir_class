@@ -35,14 +35,12 @@ defmodule MyGenServerTests do
     assert MyGenServer.call(:stack, :pop) == :hello
   end
 
-  @tag :not_impl
   test "start/2" do
     {:ok, pid} = MyGenServer.start(Stack, [:hello])
     {:links, links} = Process.info(self(), :links)
     refute pid in links
   end
 
-  @tag :not_impl
   test "start_link/2, call/2 and cast/2" do
     {:ok, pid} = MyGenServer.start_link(Stack, [:hello])
 
