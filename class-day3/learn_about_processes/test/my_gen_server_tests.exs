@@ -29,8 +29,7 @@ defmodule MyGenServerTests do
       MyGenServer.start_link(Stack, [:hello], name: {:invalid_tuple, "my_gen_server_name"})
     end
   end
-  
-  @tag :not_impl
+
   test "start_link/3 handles valid input" do
     MyGenServer.start_link(Stack, [:hello], name: :stack)
     assert MyGenServer.call(:stack, :pop) == :hello
@@ -42,7 +41,7 @@ defmodule MyGenServerTests do
     {:links, links} = Process.info(self(), :links)
     refute pid in links
   end
-  
+
   @tag :not_impl
   test "start_link/2, call/2 and cast/2" do
     {:ok, pid} = MyGenServer.start_link(Stack, [:hello])
