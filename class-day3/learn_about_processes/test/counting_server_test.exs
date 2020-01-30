@@ -42,7 +42,6 @@ defmodule CountingServerTest do
     assert CountingServer.current_number(MyCounter) == 2
   end
 
-  @tag :not_impl
   test "start_link/1 with true starts counting" do
     {:ok, _pid} = CountingServer.start_link(true)
     first_number = CountingServer.current_number(MyCounter)
