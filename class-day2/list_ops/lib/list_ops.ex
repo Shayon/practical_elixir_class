@@ -22,4 +22,22 @@ defmodule ListOps do
   def map(list, mapper) do
     reverse(reduce(list, [], fn item, acc -> [mapper.(item) | acc] end))
   end
+
+  def filter(list, filter_func) do
+    reverse(
+      reduce(list, [], fn item, acc -> if filter_func.(item), do: [item | acc], else: acc end)
+    )
+  end
+
+  def odd?(int) do
+    rem(int, 2) == 1
+  end
+
+  def append(list1, list2) do
+    reduce(reverse(list1), list2, fn item, acc -> [item | acc] end)
+  end
+
+  def concat(list_of_lists) do
+    reduce(reverse(list_of_lists), [], fn list, acc -> append(list, acc) end)
+  end
 end
