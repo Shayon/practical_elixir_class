@@ -26,6 +26,10 @@ defmodule WordCounter do
   # end
 
   def find_hamburger_eagerly(filepath) do
-    filepath |> File.read!() |> String.split(" ") |> IO.inspect
+    filepath
+      |> File.read!()
+      |> String.split("\n")
+      |> Enum.flat_map(&String.split/1)
+      |> Enum.any?(fn(word) -> word == "hamburger" end)
   end
 end
