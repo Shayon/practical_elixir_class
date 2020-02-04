@@ -24,4 +24,8 @@ defmodule WordCounter do
   #     memory_time: 2
   #   )
   # end
+
+  def find_hamburger_eagerly(filepath) do
+    filepath |> File.read!() |> String.split(" ") |> IO.inspect
+  end
 end
