@@ -64,7 +64,6 @@ defmodule WordCounterTest do
     assert WordCounter.find_hamburger_eagerly(@a_lot_of_words) == true
   end
 
-  @tag :not_impl
   test "find_hamburger_lazily/1" do
     assert WordCounter.find_hamburger_lazily(@r_frost) == false
     assert WordCounter.find_hamburger_lazily(@a_lot_of_words) == true
